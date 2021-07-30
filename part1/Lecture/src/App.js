@@ -1,6 +1,27 @@
 import React, { useState } from "react";
 
 const App = () => {
+  const[value, setValue] = useState(10)
+
+  const setToValue = (newValue) => {
+      setValue(newValue)
+  }
+  return (
+    <div>
+      <button onClick={() => setToValue(1000)}>1000</button>
+      <button onClick={() => setToValue(0)}>reset</button>
+      <button onClick={() => setToValue(value + 1)}>increment</button>
+      <p>{value}</p>
+    </div>
+  )
+}
+export default App;
+
+/*
+PART D LEFT RIGHT!!!
+import React, { useState } from "react";
+
+const App = () => {
   const [left, setLeft] = useState(0)
   const [right, setRight] = useState(0)
   const [allClicks, setAll] = useState([])
@@ -46,7 +67,8 @@ const App = () => {
 
 export default App;
 
-/* PART C
+
+PART C
 
 import React, { useState } from "react";
 
