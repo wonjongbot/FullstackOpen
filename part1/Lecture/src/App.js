@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const App = (props) => {
-  const {counter} = props
-  return(
-    <div>{counter}</div>
+const Display = ({ counter }) => <div>{counter}</div>
+
+const Button = ({ onClick, text }) => (
+    <button onClick={onClick}>
+      {text}
+    </button>
   )
-}
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  const increaseByOne = () =>setCounter(counter + 1);
+  const resetToZero = () => setCounter(0);
+  const decreaseByOne = () => setCounter(counter - 1);
+
+  return (
+    <div>
+      <Display counter={counter}/>
+      <Button onClick={increaseByOne} text="add"/>
+      <Button onClick={decreaseByOne} text="subtract"/>
+      <Button onClick={resetToZero} text="reset"/>
+    </div>
+  );
+};
 
 export default App;
 /* 
