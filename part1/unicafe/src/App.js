@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Display = (props) => (
+const StatisticLine = (props) => (
   <div>
     {" "}
     {props.text} {props.value}
@@ -17,20 +17,58 @@ const Staticstics = (props) => {
   } else {
     return (
       <div>
-        <Display value={props.good} text={"good"} />
-        <Display value={props.neutral} text={"neutral"} />
-        <Display value={props.bad} text={"bad"} />
-        <Display value={props.total} text={"all"} />
-        <Display
+        <table>
+          <thead>
+            <tr>
+              <td>good</td>
+              <td>{props.good}</td>
+            </tr>
+
+            <tr>
+              <td>neutral</td>
+              <td>{props.neutral}</td>
+            </tr>
+
+            <tr>
+              <td>bad</td>
+              <td>{props.bad}</td>
+            </tr>
+
+            <tr>
+              <td>all</td>
+              <td>{props.total}</td>
+            </tr>
+
+            <tr>
+              <td>average</td>
+              <td>
+                {(props.good - props.bad) /
+                  (props.good + props.neutral + props.bad)}
+              </td>
+            </tr>
+
+            <tr>
+              <td>positive</td>
+              <td>{props.good / (props.good + props.neutral + props.bad)}</td>
+            </tr>
+          </thead>
+        </table>
+        
+        {/* <StatisticLine text={"good"} value={props.good} />
+        <StatisticLine text={"neutral"} value={props.neutral} />
+        <StatisticLine text={"bad"} value={props.bad} />
+        <StatisticLine text={"all"} value={props.total} />
+        <StatisticLine
+          text={"average"}
           value={
             (props.good - props.bad) / (props.good + props.neutral + props.bad)
           }
-          text={"average"}
         />
-        <Display
-          value={props.good / (props.good + props.neutral + props.bad)}
+        <StatisticLine
           text={"positive"}
-        />
+          value={props.good / (props.good + props.neutral + props.bad)}
+        /> */}
+        
       </div>
     );
   }
