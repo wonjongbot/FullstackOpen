@@ -12,7 +12,16 @@ const Button = (props) => (
 );
 
 const Staticstics = (props) => {
-  
+  const total = good + neutral + bad;
+  const score = good - bad;
+  const average = score / total;
+  const percentage = (good / total) * 100;
+  <div>
+  <Display value={total} text={"all"} />
+  <Display value={average} text={"average"} />
+  <Display value={percentage} text={"positive"} />
+  </div>
+
 }
 
 const App = () => {
@@ -30,10 +39,6 @@ const App = () => {
   const setBadValue = (newBadValue) => {
     setBad(newBadValue);
   };
-  const total = good + neutral + bad;
-  const score = good - bad;
-  const average = score / total;
-  const percentage = (good / total) * 100;
 
   return (
     <div>
@@ -45,9 +50,7 @@ const App = () => {
       <Display value={good} text={"good"} />
       <Display value={neutral} text={"neutral"} />
       <Display value={bad} text={"bad"} />
-      <Display value={total} text={"all"} />
-      <Display value={average} text={"average"} />
-      <Display value={percentage} text={"percentage"} />
+      <Staticstics good={good} neutral={neutral} bad={bad} />
     </div>
   );
 };
