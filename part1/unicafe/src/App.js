@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const StatisticLine = (props) => (
-  <div>
-    {" "}
-    {props.text} {props.value}
-  </div>
-);
+// const StatisticLine = (props) => (
+//   <div>
+//     {" "}
+//     {props.text} {props.value}
+//   </div>
+// );
 
 const Button = (props) => (
   <button onClick={props.handleClick}>{props.text}</button>
